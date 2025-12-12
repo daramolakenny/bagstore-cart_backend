@@ -12,12 +12,6 @@ const colectionItemSchema = mongoose.Schema({
         type: Number,
         require: true,
     },
-    increment: {
-        type: Number,
-    },
-    decrement : {
-        type: Number,
-    },
     available : {
         type: Boolean
     },

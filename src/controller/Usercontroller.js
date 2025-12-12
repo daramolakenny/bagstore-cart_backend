@@ -111,3 +111,23 @@ export const deleteItem = async (req, res) => {
         res.sendStatus(500).json({message: "Internal server error"});
     }
 };
+
+export const auth = async (req, res) => {
+    const {userName, password} = req.body;
+    try {
+        const auth = collectionModel.find();
+        if(auth.userName === !userName && auth.password === !password) {
+            res.status(401).json({message: "incorrect user"});
+        }
+        if(auth.userName === userName && auth.password === password) {
+            res.status(200).json({
+                message: "Correct details",
+            })
+        }
+    } catch (error) {
+        console.log("Error", error);
+        res.status(500).json({
+            message: "something went wrong",
+        })
+    }
+}
